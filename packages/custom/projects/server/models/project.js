@@ -57,7 +57,6 @@ ProjectSchema.path('due').validate(function(due) {
 }, 'Title cannot be blank');
 
 ProjectSchema.path('due').validate(function(due) {
-
   return due-Date.now > 0;
 }, 'Date must be a future date');
 
