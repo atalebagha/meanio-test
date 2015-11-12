@@ -65,5 +65,5 @@ module.exports = function(Projects, app, auth) {
     .delete(auth.isMongoId, auth.requiresLogin, hasAuthorization, projects.destroy);
 
   // Finish with setting up the articleId param
-  app.param('projectId', projects.article);
+  app.param('projectId', projects.project);
 };
