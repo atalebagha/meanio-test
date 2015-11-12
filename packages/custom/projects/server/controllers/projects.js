@@ -31,6 +31,7 @@ module.exports = function(Projects) {
 
             project.save(function(err) {
                 if (err) {
+                    console.log(err)
                     return res.status(500).json({
                         error: 'Cannot save the project'
                     });
@@ -42,7 +43,8 @@ module.exports = function(Projects) {
                         name: req.user.name
                     },
                     url: config.hostname + '/projects/' + project._id,
-                    name: project.title
+                    name: project.title,
+                    due: project.due
                 });
 
                 res.json(project);
@@ -111,7 +113,7 @@ module.exports = function(Projects) {
                 user: {
                     name: req.user.name
                 },
-                name: req.article.title,
+                name: req.project.title,
                 url: config.hostname + '/projects/' + req.project._id
             });
 
@@ -126,7 +128,7 @@ module.exports = function(Projects) {
             query.find({}).sort('-created').populate('user', 'name username').exec(function(err, projects) {
                 if (err) {
                     return res.status(500).json({
-                        error: 'Cannot list the articles'
+                        error: 'Cannot list the projects'
                     });
                 }
 

@@ -2,7 +2,7 @@ exports.models = {
 
   Article: {
     id: 'Project',
-    required: ['content', 'title'],
+    required: ['description', 'title', 'due'],
     properties: {
 
       title: {
@@ -12,6 +12,10 @@ exports.models = {
       description: {
         type: 'string',
         description: 'description of the project'
+      },
+      due: {
+        type: 'date',
+        description: 'due date of project'
       },
       permissions: {
         type: 'Array',

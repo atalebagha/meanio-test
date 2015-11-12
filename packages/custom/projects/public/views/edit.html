@@ -3,7 +3,7 @@
     <div class="form-group" ng-class="{ 'has-error' : submitted && projectForm.title.$invalid }">
       <label mean-token="'edit-title'" for="title" class="col-md-2 control-label">Title</label>
       <div class="col-md-10">
-        <input name="title" type="text" class="form-control" data-ng-model="article.title" id="title" placeholder="Title" required>
+        <input name="title" type="text" class="form-control" data-ng-model="project.title" id="title" placeholder="Title" required>
         <div ng-show="submitted && projectForm.title.$invalid" class="help-block">
           <p ng-show="projectForm.title.$error.required">Title is required</p>
         </div>
@@ -13,7 +13,7 @@
     <div class="form-group" ng-class="{ 'has-error' : submitted && projectForm.content.$invalid }">
       <label mean-token="'edit-content'" for="content" class="col-md-2 control-label">Content</label>
       <div class="col-md-10">
-        <textarea name="content" data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+        <textarea name="content" data-ng-model="project.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
         <div ng-show="submitted && projectForm.content.$invalid" class="help-block">
           <p ng-show="projectForm.content.$error.required">Content is required</p>
         </div>
@@ -22,7 +22,7 @@
     <div class="form-group">
       <label mean-token="'permissions'" for="permissions" class="col-md-2 control-label">Permissions</label>
       <div class="col-md-10">
-         <ui-select multiple ng-model="article.permissions" on-select="selectPermission()">
+         <ui-select multiple ng-model="project.permissions" on-select="selectPermission()">
             <ui-select-match placeholder="Select permissions..." ng-click="showDescendants();">{{$item}}</ui-select-match>
             <ui-select-choices repeat="circle in availableCircles | filter:$select.search">
               {{circle}}

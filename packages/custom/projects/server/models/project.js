@@ -54,11 +54,10 @@ ProjectSchema.path('description').validate(function(description) {
 
 ProjectSchema.path('due').validate(function(due) {
   return !!due;
-}, 'Title cannot be blank');
-
-ProjectSchema.path('due').validate(function(due) {
-  return due-Date.now > 0;
-}, 'Date must be a future date');
+}, 'Title cannot be blank')
+  .validate(function(due) {
+    return due-(new Date()) > 0;
+  }, 'Date must be a future date');
 
 
 

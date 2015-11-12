@@ -32,7 +32,7 @@
 
 // Project authorization helpers
 var hasAuthorization = function(req, res, next) {
-  if (!req.user.isAdmin && !req.article.user._id.equals(req.user._id)) {
+  if (!req.user.isAdmin && !req.project.user._id.equals(req.user._id)) {
     return res.status(401).send('User is not authorized');
   }
   next();

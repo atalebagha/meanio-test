@@ -30,7 +30,7 @@ angular.module('mean.projects').controller('ProjectsController', ['$scope', '$st
     $scope.create = function(isValid) {
       if (isValid) {
         // $scope.project.permissions.push('test test');
-        var project = new Project($scope.project);
+        var project = new Projects($scope.project);
 
         project.$save(function(response) {
           $location.path('projects/' + response._id);
